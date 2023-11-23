@@ -19,11 +19,6 @@ const SignIn = ({navigation}) => {
     setData(e => ({...e, [i]: v}));
   };
 
-  useEffect(() => {
-    (() => {
-      setDataInAsync('UseData', data?.mail);
-    })();
-  }, [data?.mail]);
 
   return (
     <View
@@ -49,7 +44,10 @@ const SignIn = ({navigation}) => {
         }}>
         <Button
           onPress={() => {
-            navigation.replace('Home');
+                (() => {
+            setDataInAsync('Login', true);
+          })();
+            navigation.replace('DrawbleStack');
           }}
           title="Sign In"
         />
