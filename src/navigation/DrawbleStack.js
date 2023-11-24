@@ -1,4 +1,4 @@
-import { View, Text, TouchableHighlight, Image, TouchableOpacity } from 'react-native'
+import { View, Text, TouchableHighlight, Image, TouchableOpacity, StatusBar } from 'react-native'
 import React from 'react'
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import Home from '../screens/HomeScreen/Home';
@@ -8,11 +8,13 @@ import { DrawerActions, useNavigation } from '@react-navigation/native';
 import SignIn from '../screens/SignIn/SignIn';
 import { createStackNavigator } from '@react-navigation/stack';
 import { DrawerFunction } from '../CommanFunctions/CommanFunction';
+import MyProfile from '../screens/HomeScreen/MyProfile';
+import Settings from '../screens/HomeScreen/Settings';
 
 const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
 const DrawbleStack = ( ) => {
-  const navigation = useNavigation();
+
 
   const RightIcon = ({ navigation }) => {
     //Structure for the navigatin Drawer
@@ -23,6 +25,7 @@ const DrawbleStack = ( ) => {
 
     return (
       <View style={{ flexDirection: 'row' }}>
+
         <TouchableOpacity onPress={() => {
           toggleDrawer()
         }} style={{ paddingRight: 2, marginRight: 0 }} >
@@ -35,46 +38,49 @@ const DrawbleStack = ( ) => {
     );
   };
 
-  const DrawOptions = {
+  // const DrawOptions = {
    
-    headerStyle: {
-      backgroundColor: '#3498db', // Set your desired background color
-    },
-    headerTintColor: '#fff', // Set the text color of the header
-    headerTitleStyle: {
-      fontSize: 18,
-      fontWeight: 'bold',
-      textAlign: 'center', // Align the title in the center
+  //   headerStyle: {
+  //     backgroundColor: '#28489F', // Set your desired background color
+  //   },
+  //   headerTintColor: '#fff', // Set the text color of the header
+  //   headerTitleStyle: {
+  //     fontSize: 18,
+  //     fontWeight: 'bold',
+  //     textAlign: 'center', // Align the title in the center
     
-    },
-    drawerLabelStyle: {
-      color: '#000', // Set the text color of drawer items
-    },
-    drawerStyle: {
-      backgroundColor: '#ecf0f1', // Set the background color of the drawer
-    },
-    headerLeft: () => (
-      <RightIcon navigation={navigation} />
-    ),
-    headerRight: () => (
-      <Image
-        source={require('../assets/logo.png')}
-        style={{ width: 40, height: 40, marginRight: 10 }}
-      />
-    ),
-    headerTitleAlign: 'center', // Center-align the title
-  }
+  //   },
+  //   drawerLabelStyle: {
+  //     color: '#000', // Set the text color of drawer items
+  //   },
+  //   drawerStyle: {
+  //     backgroundColor: '#ecf0f1', // Set the background color of the drawer
+  //   },
+  //   headerLeft: () => (
+  //     <RightIcon navigation={navigation} />
+  //   ),
+  //   headerRight: () => (
+  //     <Image
+  //       source={require('../assets/logo.png')}
+  //       style={{ width: 40, height: 40, marginRight: 10 }}
+  //     />
+  //   ),
+  //   headerTitleAlign: 'center', // Center-align the title
+  // }
   
   return (
     <>
-    
+      <StatusBar
+        backgroundColor="#28489F" 
+   
+      />
       <Drawer.Navigator
         screenOptions={{
           
           headerStyle: {
-            backgroundColor: '#000', // Set your desired background color
+            backgroundColor: '#000', 
           },
-          headerTintColor: '#fff', // Set the text color of the header
+          headerTintColor: '#fff', 
           headerTitleStyle: {
             fontSize: 18,
             alignContent:'center',
@@ -82,15 +88,16 @@ const DrawbleStack = ( ) => {
           },
           drawerLabelStyle: {
             color: '#000',
-            textAlign: "left" // Set the text color of drawer items
+            textAlign: "left" 
           },
           drawerStyle: {
-            backgroundColor: '#ecf0f1', // Set the background color of the drawer
+            backgroundColor: '#ecf0f1',
           },
         }}
       drawerContent={(props) => <CustomDrawer {...props}  />}>
-        <Drawer.Screen name="Home" component={Home} options={DrawOptions}/>
-        <Drawer.Screen name="settings" component={Logout} options={DrawOptions} />
+        <Drawer.Screen name="Home" component={Home} options={{headerShown:false}}/>
+        <Drawer.Screen name="Settings" component={Settings} options={{headerShown:false}} />
+        <Drawer.Screen name="MyProfile" component={MyProfile} options={{headerShown:false}} />
        
       </Drawer.Navigator>
 

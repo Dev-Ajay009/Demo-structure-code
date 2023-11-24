@@ -3,6 +3,7 @@ import React from 'react'
 import { DrawerContentScrollView, DrawerItem, DrawerItemList } from '@react-navigation/drawer'
 import { CommonActions, useNavigation } from '@react-navigation/native'
 import { setDataInAsync } from '../CommanFunctions/CommanFunction'
+import { COLORS } from '../theme/color'
 
 const CustomDrawer = (props) => {
     const {navigation} = props
@@ -14,7 +15,7 @@ const CustomDrawer = (props) => {
         (() => {
             setDataInAsync("Login", false);
         })();
-        Alert.alert('lOGOUT', 'Msg', [
+        Alert.alert('Logout', 'Do you want to logout', [
             {
                 text: 'Cancel',
                 onPress: () => console.log('Cancel Pressed'),
@@ -24,18 +25,32 @@ const CustomDrawer = (props) => {
         ])
     };
   return (
-      <DrawerContentScrollView {...props} contentContainerStyle={{ backgroundColor: '#fff', padding: 0,flex:1 }}>
-          {/* Custom header */}
-          <View style={{ padding: 16, borderBottomWidth: 1, borderBottomColor: '#ccc' }}>
-              <Text>Custom Header</Text>
-          </View>
+      <DrawerContentScrollView {...props} contentContainerStyle={{ backgroundColor: '#fff',flex:1,padding:10 }}>
+
+                <View style={{
+                    padding:10
+                }}>
+              <View style={{ padding: 16, backgroundColor: COLORS.primary, marginBottom: 10 }}>
+                  <Text style={{
+                      fontSize: 16,
+                      color: '#fff',
+                      fontWeight: "700",
+                      textAlign: "center"
+                  }}>User Name</Text>
+              </View>
+                </View>
+                        
 
           {/* Drawer items */}
           <DrawerItemList {...props} />
 
           {/* Custom drawer items */}
-          <TouchableOpacity onPress={onLogout} style={{ padding: 16, borderTopWidth: 1, borderTopColor: '#ccc' }}>
-              <Text>Logout</Text>
+          <TouchableOpacity onPress={onLogout} style={{ padding: 16, borderTopWidth: 1, borderTopColor: '#000' }}>
+              <Text style={{
+                color:'#000',
+                fontSize:14,
+                fontWeight:"700"
+              }}>Logout</Text>
           </TouchableOpacity>
       </DrawerContentScrollView>
   )

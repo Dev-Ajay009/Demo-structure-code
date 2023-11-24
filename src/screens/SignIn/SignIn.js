@@ -8,7 +8,7 @@ import {
 import {useState} from 'react';
 
 import CustomInput from '../../components/CustomInput';
-
+import Toast from 'react-native-simple-toast';
 const SignIn = ({navigation}) => {
 
   const [data, setData] = useState({
@@ -48,6 +48,8 @@ const SignIn = ({navigation}) => {
             setDataInAsync('Login', true);
           })();
             navigation.replace('DrawbleStack');
+            Toast.show('Logging successfully.', Toast.LONG);
+
           }}
           title="Sign In"
         />

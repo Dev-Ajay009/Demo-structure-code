@@ -8,6 +8,7 @@ import { getDataForAsync } from '../../CommanFunctions/CommanFunction';
 import { useState } from 'react';
 import AlretModel from '../../components/AlretModel';
 import DrawbleStack from '../DrawbleStack';
+import SignUp from '../../screens/Registration/SignUp';
 const Stack = createStackNavigator();
 const Routes = () => {
   const [isLogin, setIsLogin] = useState()
@@ -35,10 +36,9 @@ const Routes = () => {
             component={DrawbleStack}
             options={{ headerShown: false }}
           />
-
           <Stack.Screen
-            name="AlretModel"
-            component={AlretModel}
+            name="SignUp"
+            component={SignUp}
             options={{ headerShown: false }}
           />
         </>
