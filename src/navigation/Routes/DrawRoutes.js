@@ -9,6 +9,7 @@ import { getDataForAsync } from '../../CommanFunctions/CommanFunction';
 import { useState } from 'react';
 import AlretModel from '../../components/AlretModel';
 import DrawbleStack from '../DrawbleStack';
+import UserProfileForInsta from '../../screens/HomeScreen/UserProfileForInsta';
 const Stack = createStackNavigator();
 const DrawRoutes = () => {
     return (
@@ -25,6 +26,11 @@ const DrawRoutes = () => {
                     <Stack.Screen
                         name="AlretModel"
                         component={AlretModel}
+                        options={{ headerShown: false }}
+                    />
+                              <Stack.Screen
+                        name="UserProfileForInsta"
+                        component={UserProfileForInsta}
                         options={{ headerShown: false }}
                     />
                     <Stack.Screen

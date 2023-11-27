@@ -9,6 +9,7 @@ import { useState } from 'react';
 import AlretModel from '../../components/AlretModel';
 import DrawbleStack from '../DrawbleStack';
 import SignUp from '../../screens/Registration/SignUp';
+import UserProfileForInsta from '../../screens/HomeScreen/UserProfileForInsta';
 const Stack = createStackNavigator();
 const Routes = () => {
   const [isLogin, setIsLogin] = useState()
@@ -41,6 +42,11 @@ const Routes = () => {
             component={SignUp}
             options={{ headerShown: false }}
           />
+                    <Stack.Screen
+                        name="UserProfileForInsta"
+                        component={UserProfileForInsta}
+                        options={{ headerShown: false }}
+                    />
         </>
 
 
