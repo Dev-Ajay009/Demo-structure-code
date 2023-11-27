@@ -42,11 +42,11 @@ const Routes = () => {
             component={SignUp}
             options={{ headerShown: false }}
           />
-                    <Stack.Screen
-                        name="UserProfileForInsta"
-                        component={UserProfileForInsta}
-                        options={{ headerShown: false }}
-                    />
+          <Stack.Screen
+            name="UserProfileForInsta"
+            component={UserProfileForInsta}
+            options={{ headerShown: false }}
+          />
         </>
 
 

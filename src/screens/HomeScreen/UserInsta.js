@@ -89,7 +89,11 @@ const UserInsta = ({ navigation }) => {
                 alignItems: "center",
                 justifyContent: "space-between"
             }}>
-                <View style={{
+                <TouchableOpacity
+                onPress={()=>{
+                    navigation.navigate('UserProfileForInsta')
+                }}
+                style={{
                     flexDirection: "row",
                     alignItems: "center"
                 }}>
@@ -106,7 +110,7 @@ const UserInsta = ({ navigation }) => {
                             Username
                         </Text>
                     </View>
-                </View>
+                </TouchableOpacity>
 
                 <View>
                     <Text style={{

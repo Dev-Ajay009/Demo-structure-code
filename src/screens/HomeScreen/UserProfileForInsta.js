@@ -1,9 +1,47 @@
-import { View, Text, Image, StyleSheet } from 'react-native'
+import { View, Text, Image, StyleSheet, FlatList } from 'react-native'
 import React from 'react'
 import HeaderComponents from '../../components/HeaderComponents'
 import { COLORS } from '../../theme/color'
 
 const UserProfileForInsta = ({navigation}) => {
+
+        let data=[
+            {
+                userimage:require('../../assets/post10.jpg')
+            },
+            {
+                userimage:require('../../assets/post10.jpg')
+            },
+            {
+                userimage:require('../../assets/post10.jpg')
+            },
+            {
+                userimage:require('../../assets/post10.jpg')
+            },
+            {
+                userimage:require('../../assets/post10.jpg')
+            },
+            {
+                userimage:require('../../assets/post10.jpg')
+            }
+        ]
+        const renderItemForList=({item})=>{
+            return(
+                <>
+                <View style={{
+                    marginLeft:5,
+                    marginTop:5
+                }}>
+                        <Image source={item.userimage} style={{
+                            height:120,
+                            width:130,
+                            resizeMode:"cover"
+                        }}/>
+                </View>
+                </>
+            )
+        }
+
   return (
     <View style={{
         flex:1,
@@ -31,6 +69,17 @@ const UserProfileForInsta = ({navigation}) => {
                     <Text style={styles.CountText}>1</Text>
                     <Text style={styles.NameText}>Connects</Text>
                 </View>
+            </View>
+            <View style={{
+                marginTop:20,
+                padding:16,
+                paddingHorizontal:0
+            }}>
+                <FlatList 
+                data={data}
+                renderItem={renderItemForList}
+                numColumns={3}
+                />
             </View>
 
     </View>
