@@ -13,7 +13,7 @@ const CustomDrawer = (props) => {
         // Implement your logout logic here
         // For example, clear authentication token, navigate to the login screen, etc.
         (() => {
-            setDataInAsync("Login", false);
+            setDataInAsync("LoginToken", false);
         })();
         Alert.alert('Logout', 'Do you want to logout', [
             {
